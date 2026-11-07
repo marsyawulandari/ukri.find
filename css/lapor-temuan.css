@@ -1,0 +1,395 @@
+/* ===== lapor-temuan.css – gaya MANDIRI untuk lapor-temuan.html =====
+Bagian 1: gaya dasar (variabel, navbar, tombol, footer, dll.)
+Bagian 2: gaya khusus halaman ini ===== */
+/* ################ BAGIAN 1 – GAYA DASAR ################ */
+/* ---- Dasar (variabel, body, link) ---- */
+:root {
+    --primary: #0a6bb5;
+    --primary-dark: #064a80;
+    --cyan: #12b5da;
+    --cyan-soft: #e6f7fc;
+    --ink: #12304a;
+    --muted: #5f7a9a;
+    --line: #d6e6f0;
+    --bg: #f2f9fd;
+    --grad: linear-gradient(135deg, #12b5da 0%, #0a6bb5 100%);
+    --grad-soft: linear-gradient(180deg, #ffffff 0%, #dff3fb 100%);
+    --radius: 16px;
+    --shadow: 0 8px 24px rgba(10, 107, 181, .12);
+}
+* {
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Poppins', system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+main {
+    flex: 1;
+}
+a {
+    color: var(--primary);
+}
+a:hover {
+    color: var(--primary-dark);
+}
+
+/* ---- Navbar ---- */
+.navbar-ukri {
+    background: #fff;
+    box-shadow: 0 2px 14px rgba(10, 107, 181, .1);
+    padding: .6rem 0;
+}
+.navbar-ukri .navbar-brand {
+    font-weight: 800;
+    font-size: 1.35rem;
+    color: #000000;
+    letter-spacing: .5px;
+}
+.navbar-ukri .navbar-brand span {
+    color: #000000;
+}
+.navbar-ukri .nav-link {
+    font-size: .9rem;
+    font-weight: 500;
+    color: var(--ink);
+    padding: .5rem .85rem !important;
+    border-radius: 8px;
+}
+.navbar-ukri .nav-link:hover {
+    color: var(--primary);
+    background: var(--cyan-soft);
+}
+.navbar-ukri .nav-link.active {
+    color: #fff;
+    background: var(--grad);
+}
+
+/* ---- Tombol ---- */
+.btn-ukri {
+    background: var(--grad);
+    color: #fff;
+    border: 0;
+    border-radius: 10px;
+    font-weight: 600;
+    padding: .6rem 1.4rem;
+    transition: transform .15s, box-shadow .15s;
+}
+.btn-ukri:hover {
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(10, 107, 181, .3);
+}
+.btn-outline-ukri {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    background: #fff;
+    border-radius: 10px;
+    font-weight: 600;
+    padding: .55rem 1.4rem;
+}
+.btn-outline-ukri:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* ---- Header halaman ---- */
+.page-header {
+    background: var(--grad);
+    color: #fff;
+    padding: 2.2rem 0;
+}
+.page-header h1 {
+    font-weight: 800;
+    font-size: 1.8rem;
+    margin: 0;
+}
+.page-header p {
+    margin: .3rem 0 0;
+    opacity: .9;
+}
+
+/* ---- Input form ---- */
+.form-control,
+.form-select {
+    border-radius: 10px;
+    border-color: var(--line);
+    padding: .6rem .9rem;
+}
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 .2rem rgba(18, 181, 218, .2);
+}
+
+/* ---- Label form ---- */
+.form-label {
+    font-weight: 600;
+    font-size: .88rem;
+}
+
+/* ---- Kartu form ---- */
+.form-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+.form-main {
+    padding: 2rem;
+}
+
+/* ---- Footer ---- */
+.footer-ukri {
+    background: linear-gradient(180deg, #0a6bb5 0%, #064a80 100%);
+    color: #e8f6fc;
+    padding: 3rem 0 1rem;
+    margin-top: auto;
+}
+.footer-ukri h6 {
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+.footer-ukri a {
+    color: #cfeefa;
+    text-decoration: none;
+    display: block;
+    margin-bottom: .4rem;
+    font-size: .9rem;
+}
+.footer-ukri a:hover {
+    color: #fff;
+}
+.footer-ukri p,
+.footer-ukri li {
+    font-size: .88rem;
+}
+.footer-ukri .brand {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #fff;
+}
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, .25);
+    margin-top: 2rem;
+    padding-top: 1rem;
+    text-align: center;
+    font-size: .82rem;
+}
+
+/* ################ BAGIAN 2 – GAYA KHUSUS HALAMAN ################ */
+
+.form-side {
+    background: var(--grad);
+    color: #fff;
+    padding: 2rem;
+    height: 100%;
+}
+.form-side li {
+    margin-bottom: .8rem;
+}
+
+.dropzone {
+    border: 2px dashed var(--cyan);
+    background: var(--cyan-soft);
+    border-radius: 14px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background .2s;
+}
+.dropzone.drag {
+    background: #c8eefa;
+}
+.dropzone i {
+    font-size: 2rem;
+    color: var(--primary);
+}
+.dropzone img {
+    max-height: 180px;
+    border-radius: 10px;
+}
+.secret-box {
+    background: #fff8e6;
+    border: 1px solid #f6d889;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+@media (max-width: 575px) {
+    .form-main,
+    .form-side {
+        padding: 1.3rem;
+    }
+}
+
+/* ===== TOMBOL NOTIFIKASI DAN LOGIN ===== */
+
+#auth-area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Tombol Notifikasi */
+.btn-notifikasi {
+    position: relative;
+    background: linear-gradient(135deg, #12b5da, #087bb8);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    width: 40px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+.btn-notifikasi i {
+    font-size: 20px;
+}
+.btn-notifikasi:hover {
+    color: #ffffff;
+    background: #087bb8;
+}
+
+/* Titik Merah Notifikasi */
+.notification-dot {
+    position: absolute;
+    top: 3px;
+    right: 4px;
+    width: 8px;
+    height: 8px;
+    background: #ff3333;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+}
+
+/* Ikon Login */
+#auth-area .btn-ukri {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    min-width: 90px;
+    height: 36px;
+    padding: 0 12px;
+}
+#auth-area .btn-ukri i {
+    font-size: 18px;
+}
+/* Hover Menu */
+.auth-dropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    width: 180px;
+    background: #ffffff;
+    border: 2px solid #111111;
+    border-radius: 22px;
+    padding: 10px 8px;
+    z-index: 1000;
+
+    display: none;
+}
+.form-main h5 {
+    font-weight: 700;
+}
+.form-main h5 i {
+    font-size: 1.8rem;
+    vertical-align: middle;
+    color: #12304a;
+}
+/* PENYESUAIAN KOLOM INFORMASI PENTING */
+
+.form-side {
+    border-radius: 20px 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    height: 100%;
+    padding: 2rem;
+}
+.form-side h5 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 1.5rem !important;
+}
+.form-side ul {
+    margin-bottom: 0;
+}
+.form-side li {
+    font-size: .95rem;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+}
+
+/*ILUSTRASI KACA PEMBESAR DAN PETA */
+
+.info-illustration {
+    position: relative;
+    width: 140px;
+    height: 120px;
+    margin: auto auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-illustration .map-icon {
+    font-size: 75px;
+    color: #b8d9ff;
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+}
+
+.info-illustration .search-icon {
+    font-size: 55px;
+    color: #263d67;
+    position: absolute;
+    top: 0;
+    left: 5px;
+    transform: rotate(-15deg);
+    z-index: 2;
+}
+
+.info-illustration .pin-icon {
+    font-size: 30px;
+    color: #ff4667;
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    z-index: 3;
+}
+
+   /* ---- TANDA BINTANG MERAH PADA LABEL ---- */
+
+.required-star {
+    color: #ff0000;
+    font-weight: 700;
+}
+
+   /* ---- RESPONSIVE KOLOM INFORMASI PENTING ---- */
+
+@media (max-width: 991px) {
+
+    .form-side {
+        border-radius: 20px 20px 0 0;
+        min-height: auto;
+    }
+
+    .info-illustration {
+        margin-top: 25px;
+    }
+
+}

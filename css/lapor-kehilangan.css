@@ -1,0 +1,190 @@
+/* ===== lapor-kehilangan.css – gaya MANDIRI untuk lapor-kehilangan.html =====
+   Bagian 1: gaya dasar (variabel, navbar, tombol, footer, dll.)
+   Bagian 2: gaya khusus halaman ini */
+
+/* ################ BAGIAN 1 – GAYA DASAR ################ */
+
+/* ---- Dasar (variabel, body, link) ---- */
+:root {
+    --primary: #0a6bb5;
+    --primary-dark: #064a80;
+    --cyan: #12b5da;
+    --cyan-soft: #e6f7fc;
+    --ink: #12304a;
+    --muted: #5f7a90;
+    --line: #d6e6f0;
+    --bg: #f2f9fd; 
+    --grad: linear-gradient(135deg, #12b5da 0%, #0a6bb5 100%);
+    --grad-soft: linear-gradient(180deg, #ffffff 0%, #dff3fb 100%);
+    --radius: 16px;
+    --shadow: 0 8px 24px rgba(10, 107, 181, .12);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Poppins', system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+main { flex: 1; }
+a { color: var(--primary); }
+a:hover { color: var(--primary-dark); }
+
+
+/* ---- Navbar ---- */
+.navbar-ukri {
+    background: #fff;
+    box-shadow: 0 2px 14px rgba(10, 107, 181, .1);
+    padding: .6rem 0;
+}
+
+.navbar-ukri .navbar-brand {
+    font-weight: 800;
+    font-size: 1rem;
+    color: #000000 !important;
+    letter-spacing: 0;
+    text-decoration: none;
+}
+
+.navbar-ukri .navbar-brand span {
+    color: #000000 !important;
+}
+
+.navbar-ukri .navbar-brand span { color: var(--cyan); }
+.navbar-ukri .nav-link {
+    font-size: .9rem;
+    font-weight: 500;
+    color: var(--ink);
+    padding: .5rem .85rem !important;
+    border-radius: 8px;
+}
+.navbar-ukri .nav-link:hover { color: var(--primary); background: var(--cyan-soft); }
+.navbar-ukri .nav-link.active {
+    color: #35b6c4 !important;
+    background: transparent;
+}
+
+/* ---- Tombol ---- */
+.btn-ukri {
+    background: var(--grad);
+    color: #fff;
+    border: 0;
+    border-radius: 10px;
+    font-weight: 600;
+    padding: .6rem 1.4rem;
+    transition: transform .15s, box-shadow .15s;
+}
+.btn-ukri:hover {color: #fff; transform: translateY(-2px); box-shadow: 0 8px 18px rgba(10, 107, 181, .3);}
+.btn-outline-ukri {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    background: #fff;
+    border-radius: 10px;
+    font-weight: 600;
+    padding: .55rem 1.4rem;
+}
+
+.btn-outline-ukri:hover { background: var(--primary); color: #fff; }
+
+/* ---- Tombol Notifikasi ---- */
+.btn-notifikasi {
+    background: linear-gradient(135deg, #12b5da 0%, #0a6bb5 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    width: 48px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: .2s;
+}
+
+.btn-notifikasi:hover {
+    background: #064a80;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Ukuran ikon orang pada tombol login */
+#auth-area .btn-ukri i {
+    font-size: 1.1rem;
+    vertical-align: middle;
+}
+
+
+/* ---- Header halaman ---- */
+.page-header {
+    background: linear-gradient(110deg, #0875a9 0%, #10bdd0 100%) !important;
+    color: #ffffff;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.page-header h1 {
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 1.35rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.page-header h1 i {
+    font-size: 1.3rem;
+}
+
+.page-header p {
+    color: #ffffff;
+    font-size: 0.65rem;
+    margin: 3px 0 0;
+    opacity: 0.95;
+}
+
+/* ---- Input form ---- */
+.form-control, .form-select { border-radius: 10px; border-color: var(--line); padding: .6rem .9rem; }
+.form-control:focus, .form-select:focus { border-color: var(--cyan); box-shadow: 0 0 0 .2rem rgba(18, 181, 218, .2); }
+
+/* ---- Label form ---- */
+.form-label { font-weight: 600; font-size: .88rem; }
+
+/* ---- Kartu form ---- */
+.form-card { background: #fff; border-radius: 20px; box-shadow: var(--shadow); overflow: hidden; }
+.form-main { padding: 2rem; }
+
+/* ---- Footer ---- */
+.footer-ukri { background: linear-gradient(180deg, #0a6bb5 0%, #064a80 100%); color: #e8f6fc; padding: 3rem 0 1rem; margin-top: auto; }
+.footer-ukri h6 { font-weight: 700; color: #fff; margin-bottom: 1rem; }
+.footer-ukri a { color: #cfeefa; text-decoration: none; display: block; margin-bottom: .4rem; font-size: .9rem; }
+.footer-ukri a:hover { color: #fff; }
+.footer-ukri p, .footer-ukri li { font-size: .88rem; }
+.footer-ukri .brand { font-size: 1.5rem; font-weight: 800; color: #fff; }
+.footer-bottom { border-top: 1px solid rgba(255, 255, 255, .25); margin-top: 2rem; padding-top: 1rem; text-align: center; font-size: .82rem; }
+
+/* ################ BAGIAN 2 – GAYA KHUSUS HALAMAN ################ */
+
+.form-side { background: var(--grad); color: #fff; padding: 2rem; height: 100%; }
+.form-side li { margin-bottom: .8rem; }
+.dropzone {
+    border: 2px dashed var(--cyan);
+    background: var(--cyan-soft);
+    border-radius: 14px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.dropzone.drag { background: #c8eefa; }
+.dropzone i { font-size: 2rem; color: var(--primary); }
+
+dropzone img { max-height: 180px; border-radius: 10px; }
+.secret-box { background: #fff8e6; border: 1px solid #f6d889; border-radius: 12px; padding: 1rem; }
+@media (max-width: 575px) {
+    .form-main, .form-side {
+        padding: 1.3rem; }
+}

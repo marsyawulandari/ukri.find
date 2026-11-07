@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UKRI.FIND — Daftar Laporan</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="css/daftar-laporan.css" rel="stylesheet">
+</head>
+<body data-page="list">
+  <nav class="navbar navbar-expand-lg navbar-ukri sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">UKRI<span>.FIND</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Buka navigasi"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navMenu"><ul class="navbar-nav mx-auto mb-2 mb-lg-0"><li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li><li class="nav-item"><a class="nav-link active" href="daftar-laporan.html" aria-current="page">Daftar Laporan</a></li><li class="nav-item"><a class="nav-link" href="lapor-kehilangan.html">Lapor Kehilangan</a></li><li class="nav-item"><a class="nav-link" href="lapor-temuan.html">Lapor Temuan</a></li><li class="nav-item"><a class="nav-link" href="tentang.html">Tentang</a></li><li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li></ul>
+
+      <!-- JavaScript hanya memperbarui tombol sesuai status login -->
+
+      <!-- TAMBAHAN: Tombol notifikasi -->
+      <button type="button" class="btn-notification"
+        aria-label="Notifikasi"
+        title="Notifikasi">
+        <i class="bi bi-bell-fill"></i>
+        <span class="notification-dot"></span>
+      </button>
+
+      <div id="auth-area"><a class="btn btn-ukri" href="login.html"><i class="bi bi-box-arrow-in-right me-1"></i>LOGIN</a></div>
+    </div>
+  </div>
+</nav>
+
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <h1>Daftar Laporan</h1>
+        <p>Semua laporan barang hilang dan ditemukan di area kampus.</p>
+      </div>
+    </div>
+
+    <div class="container py-4">
+      <div class="filter-bar mb-4">
+        <div class="row g-2">
+          <div class="col-lg-4"><input id="f-q" class="form-control" placeholder="Cari barang yang hilang"></div>
+          <div class="col-6 col-lg-2"><select id="f-kategori" class="form-select">
+            <option value="">Semua Kategori</option>
+            <option value="Elektronik">Elektronik</option>
+            <option value="Aksesoris">Aksesoris</option>
+            <option value="Tas &amp; Dompet">Tas &amp; Dompet</option>
+            <option value="Alat Tulis">Alat Tulis</option>
+            <option value="Pakaian">Pakaian</option>
+            <option value="Kunci">Kunci</option>
+            <option value="Dokumen/Kartu">Dokumen/Kartu</option>
+            <option value="Lainnya">Lainnya</option>
+          </select></div>
+          <div class="col-6 col-lg-2"><input id="f-tanggal" type="date" class="form-control" title="Filter tanggal"></div>
+          <div class="col-6 col-lg-2">
+            <select id="f-status" class="form-select">
+              <option value="">Semua Status</option>
+              <option value="hilang">Hilang</option>
+              <option value="ditemukan">Ditemukan</option>
+            </select>
+          </div>
+          <div class="col-6 col-lg-2 d-grid"><button id="f-reset" class="btn btn-outline-ukri">Reset</button></div>
+        </div>
+      </div>
+
+      <p id="result-count" class="text-muted small" aria-live="polite">Memuat laporan...</p>
+      <div class="row g-3" id="list-grid" aria-live="polite"></div>
+      <nav class="mt-4" aria-label="Navigasi halaman laporan">
+        <ul class="pagination justify-content-center" id="pagination"></ul>
+      </nav>
+
+      <!-- Template tampilan ditulis di HTML; JavaScript hanya mengisi data dan interaksi. -->
+      <template id="report-card-template">
+        <div class="col-6 col-md-4 col-lg-3 report-item">
+          <a href="#" class="report-card" data-report-link>
+            <div class="rc-img">
+              <img data-report-image alt="" loading="lazy" hidden>
+              <i class="bi bi-box-seam" data-report-icon aria-hidden="true"></i>
+              <span class="badge-status" data-report-status></span>
+            </div>
+            <div class="rc-body">
+              <h6 data-report-name></h6>
+              <div class="rc-meta">
+                <span><i class="bi bi-geo-alt" aria-hidden="true"></i> <span data-report-location></span></span>
+                <span>&bull; <span data-report-date></span></span>
+              </div>
+              <p class="rc-desc" data-report-description></p>
+            </div>
+          </a>
+        </div>
+      </template>
+
+      <template id="empty-state-template">
+        <div class="empty-state w-100">
+          <i class="bi bi-search" aria-hidden="true"></i>
+          <p>Tidak ada laporan yang sesuai filter.</p>
+        </div>
+      </template>
+
+      <template id="pagination-item-template">
+        <li class="page-item"><a class="page-link" href="#"></a></li>
+      </template>
+    </div>
+  </main>
+
+  <footer class="footer-ukri">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4"><div class="brand">UKRI.FIND</div><p class="mt-2">Platform digital untuk melaporkan dan mencari barang hilang atau ditemukan di area kampus.</p></div>
+      <div class="col-6 col-lg-2"><h6>MENU</h6><a href="index.html">Beranda</a><a href="daftar-laporan.html">Daftar Laporan</a><a href="lapor-kehilangan.html">Lapor Kehilangan</a><a href="lapor-temuan.html">Lapor Temuan</a><a href="tentang.html">Tentang</a><a href="kontak.html">Kontak</a></div>
+      <div class="col-6 col-lg-3"><h6>Alamat kami</h6><p>Jl. Pelajar Pejuang 45 No. 8, Lingkar Selatan, Kecamatan Lengkong, Kota Bandung, Jawa Barat 40263.</p></div>
+      <div class="col-lg-3"><h6>Sosial Media</h6><p class="mb-1"><i class="bi bi-instagram me-2"></i>@UKRI.FIND</p><p class="mb-1"><i class="bi bi-telephone me-2"></i>+62 831-0975-3395</p><p><i class="bi bi-telephone me-2"></i>+62 838-5208-4549</p></div>
+    </div><div class="footer-bottom">&copy; 2026 UKRI.FIND Center Digital. Tugas Pemrograman Web</div>
+  </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/daftar-laporan.js"></script>
+</body>
+</html>
